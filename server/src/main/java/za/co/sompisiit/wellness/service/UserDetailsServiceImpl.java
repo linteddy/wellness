@@ -1,4 +1,4 @@
-package za.co.sompisiit.wellness.Service;
+package za.co.sompisiit.wellness.service;
 
 
 import org.springframework.security.core.userdetails.User;
@@ -20,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
         ApplicationUser applicationUser = applicationUserRepository.findByUsername(username);
         if (applicationUser == null) {
             throw new UsernameNotFoundException(username);

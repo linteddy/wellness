@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.co.sompisiit.wellness.model.Patient;
+import za.co.sompisiit.wellness.service.PatientService;
 
 import java.util.List;
 
@@ -26,12 +27,12 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity<Patient> capturePatient(@RequestBody Patient patient) {
+    public ResponseEntity<?> capturePatient(final @RequestBody Patient patient) {
         try {
             Patient savedPatient = patientService.addPatient(patient);
-        }
-        catch (Exception ex){
-            new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(savedPatient, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
