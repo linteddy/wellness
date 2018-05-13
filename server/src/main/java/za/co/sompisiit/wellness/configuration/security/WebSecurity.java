@@ -1,4 +1,4 @@
-package za.co.sompisiit.wellness.security;
+package za.co.sompisiit.wellness.configuration.security;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

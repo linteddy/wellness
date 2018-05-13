@@ -1,4 +1,4 @@
-package za.co.sompisiit.wellness.security;
+package za.co.sompisiit.wellness.configuration.security;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static za.co.sompisiit.wellness.security.SecurityConstants.HEADER_STRING;
-import static za.co.sompisiit.wellness.security.SecurityConstants.SECRET;
-import static za.co.sompisiit.wellness.security.SecurityConstants.TOKEN_PREFIX;
+import static za.co.sompisiit.wellness.configuration.security.SecurityConstants.HEADER_STRING;
+import static za.co.sompisiit.wellness.configuration.security.SecurityConstants.SECRET;
+import static za.co.sompisiit.wellness.configuration.security.SecurityConstants.TOKEN_PREFIX;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 

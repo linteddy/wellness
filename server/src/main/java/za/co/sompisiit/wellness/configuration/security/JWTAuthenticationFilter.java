@@ -1,4 +1,4 @@
-package za.co.sompisiit.wellness.security;
+package za.co.sompisiit.wellness.configuration.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static za.co.sompisiit.wellness.security.SecurityConstants.*;
+import static za.co.sompisiit.wellness.configuration.security.SecurityConstants.*;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;

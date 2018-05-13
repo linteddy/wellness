@@ -1,4 +1,4 @@
-package za.co.sompisiit.wellness.security;
+package za.co.sompisiit.wellness.configuration.security;
 
 public class SecurityConstants {
     public static final String SECRET = "SecretKeyToGenJWTs";
