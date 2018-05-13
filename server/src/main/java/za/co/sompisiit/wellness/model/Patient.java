@@ -17,14 +17,25 @@ public class Patient extends AuditedEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String surname;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private double height;
+
+    @Column(nullable = false)
     private double weight;
-    @Column(name = "systolic_blood_pressure")
+
+    @Column(nullable = false, name = "systolic_blood_pressure")
     private double systolicBloodPressure;
-    @Column(name = "diastolic_blood_pressure")
+
+    @Column(nullable = false, name = "diastolic_blood_pressure")
     private double diastolicBloodPressure;
 
     private double bodyMassIndex;
