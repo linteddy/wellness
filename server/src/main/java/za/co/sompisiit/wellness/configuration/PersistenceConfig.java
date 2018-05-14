@@ -24,6 +24,10 @@ public class PersistenceConfig {
                 User user = (User) principal;
                 return Optional.of(user.getUsername());
             }
+            if(principal instanceof String){
+
+                return Optional.of((String) principal);
+            }
         }
         return Optional.empty();
     }

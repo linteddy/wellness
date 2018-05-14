@@ -1,5 +1,6 @@
 package za.co.sompisiit.wellness.service;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import za.co.sompisiit.wellness.model.Patient;
 import za.co.sompisiit.wellness.repository.PatientRepository;
