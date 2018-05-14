@@ -19,6 +19,6 @@
 * ### RUN SPRING-BOOT PROJECT
   * `cd server`
   * `mvn spring-boot:run`
-* ### RUN ANGULAR PROJECT(To be implemeted)
+* ### RUN ANGULAR PROJECT
   * `cd ui`
   * `ng serve --o`
