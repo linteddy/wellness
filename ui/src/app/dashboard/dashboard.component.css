@@ -1,8 +1,9 @@
 #container {
-  text-align: center;
-  align-content: center;
-  height: fit-content;
-  background-color: cornflowerblue;
+  /*text-align: center;*/
+  /*align-content: center;*/
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 button {
@@ -14,3 +15,4 @@ button {
   background-color: springgreen;
   text-shadow: darkseagreen;
 }
+
