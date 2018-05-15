@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthenticationService} from './_services/authentication.service';
 
@@ -8,9 +8,15 @@ import {AuthenticationService} from './_services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public href = '';
 
   constructor(private router: Router, private auth: AuthenticationService) {
+  }
+
+
+  show() {
+    this.href = '' + this.router.url;
+    return !(this.href === '/login');
   }
 
   logout() {

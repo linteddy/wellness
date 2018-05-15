@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-dark  justify-content-between" style="background-color: cornflowerblue">
+<nav *ngIf="show();" class="navbar navbar-dark  justify-content-between" style="background-color: cornflowerblue">
   <a class="navbar-brand"></a>
   <form class="form-inline">
     <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="logout();"><i class="fas fa-power-off"></i></button>

@@ -15,6 +15,7 @@ import {ViewComponent} from './view/view.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {AlertComponent} from './_directives/alert.component';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
+import {PatientService} from './_services/patient.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import {JwtInterceptor} from './_helpers/jwt.interceptor';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [AlertService, AuthenticationService, AuthGuard,  {
+  providers: [AlertService, AuthenticationService, AuthGuard, PatientService, {
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor,
     multi: true
