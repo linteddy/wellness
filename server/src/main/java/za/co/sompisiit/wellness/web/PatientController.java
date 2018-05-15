@@ -9,7 +9,7 @@ import za.co.sompisiit.wellness.service.PatientService;
 import java.util.List;
 
 @RestController
-@RequestMapping("patient")
+@RequestMapping("api/v1/patients")
 public class PatientController {
 
     private PatientService patientService;
