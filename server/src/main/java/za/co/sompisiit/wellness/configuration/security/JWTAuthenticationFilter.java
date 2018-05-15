@@ -10,6 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import za.co.sompisiit.wellness.model.ApplicationUser;
+import za.co.sompisiit.wellness.model.Token;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -48,15 +49,22 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     protected void successfulAuthentication(HttpServletRequest req,
-                                            HttpServletResponse res,
+                                            HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
         String token = Jwts.builder()
                 .setSubject(((User) auth.getPrincipal()).getUsername())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .claim("user",auth.getPrincipal())
                 .signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
                 .compact();
-        res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        Token tokenObject = new Token();
+        tokenObject.setToken(token);
+        String json = new ObjectMapper().writeValueAsString(tokenObject);
+        response.getWriter().print(json);
+        response.getWriter().flush();
+
     }
 }
