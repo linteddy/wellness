@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           }
         },
         error => {
-          const message = (error.status === 401) ? 'Incorrect username or password' : 'Oops something went wrong, please try again later';
+          const message = 'Invalid username and password provided. Please try again.';
           this.alertService.error(message);
           this.loading = false;
         });
