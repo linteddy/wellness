@@ -23,4 +23,10 @@ export class PatientService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
+
+  getHighRiskPatients() {
+    return this.http.get<Patient[]>('/api/v1/patients/high-risk', {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
 }

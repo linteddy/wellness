@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PatientService} from '../_services/patient.service';
+import {Patient} from '../_models/patient';
 
 @Component({
   selector: 'app-view',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-
-  constructor() { }
+  patients: Patient[];
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit() {
+    this.retrieveHighRiskPatients();
+  }
+
+  private retrieveHighRiskPatients() {
+    this.patientService.getHighRiskPatients().subscribe(
+      data => {
+            console.log(data);
+            this.patients = data;
+      }
+    );
   }
 
 }
