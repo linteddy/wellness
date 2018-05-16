@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
         data => {
           console.log(data);
           const token = data.token;
+          localStorage.setItem('role', data.role);
+          localStorage.setItem('expiresIn', data.expiresIn);
           if (token) {
             localStorage.setItem('token', token);
             this.router.navigateByUrl(this.return);
