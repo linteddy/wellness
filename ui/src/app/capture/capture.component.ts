@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AlertService} from '../_services/alert.service';
 import {PatientService} from '../_services/patient.service';
 import {Patient} from '../_models/patient';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-capture',
@@ -12,7 +13,7 @@ export class CaptureComponent implements OnInit {
   public patient: Patient = new Patient();
 
   constructor(private alertService: AlertService,
-              private patientService: PatientService) {
+              private patientService: PatientService, private route: Router) {
   }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class CaptureComponent implements OnInit {
       this.patient.height, this.patient.systolicBloodPressure, this.patient.diastolicBloodPressure)
       .subscribe(
         data => {
+          this.route.navigateByUrl('/dashboard');
           this.alertService.success('Patient saved successfully');
         }
         ,

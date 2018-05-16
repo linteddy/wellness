@@ -21,4 +21,8 @@ export class DashboardComponent implements OnInit {
   goToViewHighRiskPatients() {
     this.router.navigateByUrl('/view');
   }
+
+  canViewHighRiskPatients() {
+    return localStorage.getItem('role') === 'ADMIN';
+  }
 }
