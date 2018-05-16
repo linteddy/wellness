@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.math3.util.Precision;
 
 import javax.persistence.*;
 
@@ -44,5 +45,6 @@ public class Patient extends AuditedEntity {
     @PreUpdate
     private void calculateBodyMassIndex() {
         bodyMassIndex = weight / (height * height);
+        bodyMassIndex = Precision.round(bodyMassIndex,2);
     }
 }
