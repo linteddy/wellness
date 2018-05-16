@@ -53,15 +53,20 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
+
+        String username = ((User) auth.getPrincipal()).getUsername();
         String token = Jwts.builder()
-                .setSubject(((User) auth.getPrincipal()).getUsername())
+                .setSubject(username)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .claim("user", auth.getPrincipal())
                 .signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
                 .compact();
         response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+
+        //Todo use JWT decoder on client side to decode token
         Token tokenObject = new Token();
         tokenObject.setToken(TOKEN_PREFIX + token);
+        tokenObject.setRole(username.equals("admin") ? "ADMIN" : "CAPTURER");
+        tokenObject.setExpiresIn(new Date(System.currentTimeMillis() + EXPIRATION_TIME));
         String json = new ObjectMapper().writeValueAsString(tokenObject);
         response.getWriter().print(json);
         response.getWriter().flush();
