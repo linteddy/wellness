@@ -4,7 +4,7 @@
     * A capturer and an admin user can capture patient result.
     * Only the admin can see high risk patients
   * A High risk patient
-    * BMI greater than 30
+    * BMI greater than 30 or
     * Systolic blood pressure > 140 and Diastolic blood pressure > 90.
 ***
 
