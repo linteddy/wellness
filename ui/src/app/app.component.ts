@@ -9,6 +9,7 @@ import {AuthenticationService} from './_services/authentication.service';
 })
 export class AppComponent {
   public href = '';
+  public menu = '';
 
   constructor(private router: Router, private auth: AuthenticationService) {
   }
@@ -16,7 +17,19 @@ export class AppComponent {
 
   show() {
     this.href = '' + this.router.url;
-    return !(this.href === '/login');
+    if (this.href === '/view') {
+      this.menu = 'High Risk Patients';
+      return true;
+    }
+    if (this.href === '/dashboard') {
+      this.menu = 'Wellness Dashboard';
+      return true;
+    }
+    if (this.href === '/capture') {
+      this.menu = 'Capture Result';
+      return true;
+    }
+    return false;
   }
 
   logout() {
