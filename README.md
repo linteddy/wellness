@@ -1,5 +1,5 @@
-# wellness
-* A wellness app for storing patient results and display high risk patients.
+# WELLNESS
+* A website for capturing patient results and displaying high risk patients.
   * The system has two users
     * A capturer and an admin user can capture patient result.
     * Only the admin can see high risk patients
