@@ -12,6 +12,8 @@ import {Router} from '@angular/router';
 export class CaptureComponent implements OnInit {
   public patient: Patient = new Patient();
 
+  submitted = false;
+
   constructor(private alertService: AlertService,
               private patientService: PatientService, private route: Router) {
   }
